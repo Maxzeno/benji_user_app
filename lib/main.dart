@@ -97,7 +97,6 @@ void main() async {
     };
 
     await localNotificationService.setup();
-    localNotificationService.messaging();
   }
 
   runApp(const MyApp());

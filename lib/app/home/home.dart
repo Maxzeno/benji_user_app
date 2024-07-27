@@ -79,7 +79,9 @@ class _HomeState extends State<Home> {
     checkAuth(context);
     checkIfShoppingLocation(context);
     if (!fnd.kIsWeb) {
-      localNotificationService.initNotify();
+      localNotificationService.initNotify().then((value) {
+        localNotificationService.messaging();
+      });
 
       Timer(
         const Duration(seconds: 2),
