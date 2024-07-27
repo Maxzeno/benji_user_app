@@ -7,6 +7,7 @@ import 'package:benji/app/cart/my_cart.dart';
 import 'package:benji/app/favorites/favorites.dart';
 import 'package:benji/app/packages/send_package.dart';
 import 'package:benji/app/support/help_and_support.dart';
+import 'package:benji/main.dart';
 import 'package:benji/src/components/business/business_card.dart';
 import 'package:benji/src/components/button/my_elevatedbutton.dart';
 import 'package:benji/src/components/image/my_image.dart';
@@ -14,7 +15,6 @@ import 'package:benji/src/components/others/empty.dart';
 import 'package:benji/src/components/others/my_future_builder.dart';
 import 'package:benji/src/repo/controller/address_controller.dart';
 import 'package:benji/src/repo/controller/category_controller.dart';
-import 'package:benji/src/repo/controller/fcm_messaging_controller.dart';
 import 'package:benji/src/repo/controller/product_controller.dart';
 import 'package:benji/src/repo/controller/sub_category_controller.dart';
 import 'package:benji/src/repo/controller/vendor_controller.dart';
@@ -45,7 +45,6 @@ import '../../src/components/simple_item/category_item.dart';
 import '../../src/components/snackbar/my_floating_snackbar.dart';
 import '../../src/providers/constants.dart';
 import '../../src/providers/responsive_constant.dart';
-import '../../src/repo/controller/notifications_controller.dart';
 import '../../src/repo/models/vendor/vendor.dart';
 import '../../theme/colors.dart';
 import '../address/addresses.dart';
@@ -80,8 +79,7 @@ class _HomeState extends State<Home> {
     checkAuth(context);
     checkIfShoppingLocation(context);
     if (!fnd.kIsWeb) {
-      FcmMessagingController.instance.handleFCM();
-      NotificationController.initializeNotification();
+      localNotificationService.initNotify();
 
       Timer(
         const Duration(seconds: 2),

@@ -9,7 +9,6 @@ import 'package:benji/src/components/appbar/my_appbar.dart';
 import 'package:benji/src/components/button/my_elevatedbutton.dart';
 import 'package:benji/src/components/payment/monnify.dart';
 import 'package:benji/src/components/payment/monnify_mobile.dart';
-import 'package:benji/src/repo/controller/notifications_controller.dart';
 import 'package:benji/src/repo/controller/payment_controller.dart';
 import 'package:benji/src/repo/controller/user_controller.dart';
 import 'package:benji/src/repo/utils/constants.dart';
@@ -177,12 +176,12 @@ class _PayForDeliveryState extends State<PayForDelivery> {
               onTransaction: (response) async {
                 consoleLog('the response from my monnify $response');
                 if (response != null && response['status'] == "SUCCESS") {
-                  await NotificationController.showNotification(
-                    title: "Payment Success",
-                    body: "Your payment of NGN$amount was successful",
-                    largeIcon: "asset://assets/icons/success.png",
-                    customSound: "asset://assets/audio/benji.wav",
-                  );
+                  // await NotificationController.showNotification(
+                  //   title: "Payment Success",
+                  //   body: "Your payment of NGN$amount was successful",
+                  //   largeIcon: "asset://assets/icons/success.png",
+                  //   customSound: "asset://assets/audio/benji.wav",
+                  // );
 
                   Get.to(
                     () => AssignRiderMap(
@@ -214,12 +213,12 @@ class _PayForDeliveryState extends State<PayForDelivery> {
               onTransaction: (response) async {
                 consoleLog('the response from my monnify $response');
                 if (response != null && response['status'] == "SUCCESS") {
-                  await NotificationController.showNotification(
-                    title: "Payment Success",
-                    body: "Your payment of NGN$amount was successful",
-                    largeIcon: "asset://assets/icons/success.png",
-                    customSound: "asset://assets/audio/benji.wav",
-                  );
+                  // await NotificationController.showNotification(
+                  //   title: "Payment Success",
+                  //   body: "Your payment of NGN$amount was successful",
+                  //   largeIcon: "asset://assets/icons/success.png",
+                  //   customSound: "asset://assets/audio/benji.wav",
+                  // );
 
                   Get.off(
                     () => const Packages(),

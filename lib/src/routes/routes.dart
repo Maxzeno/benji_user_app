@@ -14,7 +14,6 @@ import 'package:benji/app/packages/send_package.dart';
 import 'package:benji/app/settings/change_password.dart';
 import 'package:benji/app/settings/edit_profile.dart';
 import 'package:benji/app/settings/email_verification.dart';
-import 'package:benji/app/settings/notification_page.dart';
 import 'package:benji/app/settings/settings.dart';
 import 'package:benji/app/splash_screens/startup_splash_screen.dart';
 import 'package:benji/frontend/join_us/join_us.dart';
@@ -57,7 +56,7 @@ class AppRoutes {
     myGetPageBuilder(const ChangePassword()),
     myGetPageBuilder(const EditProfile()),
     myGetPageBuilder(const EmailVerification()),
-    myGetPageBuilder(const NotificationPage()),
+    // myGetPageBuilder(const NotificationPage()),
     myGetPageBuilder(const Settings()),
     myGetPageBuilder(const JoinUsPage()),
     myGetPageBuilder(const AboutPage()),

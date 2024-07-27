@@ -9,7 +9,6 @@ import 'package:benji/app/splash_screens/payment_successful_screen.dart';
 import 'package:benji/src/components/payment/monnify.dart';
 import 'package:benji/src/components/payment/monnify_mobile.dart';
 import 'package:benji/src/repo/controller/cart_controller.dart';
-import 'package:benji/src/repo/controller/notifications_controller.dart';
 import 'package:benji/src/repo/controller/order_confirm_status.dart';
 import 'package:benji/src/repo/controller/order_controller.dart';
 import 'package:benji/src/repo/controller/user_controller.dart';
@@ -194,12 +193,12 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 consoleLog('the response from my alatpay $response');
                 if (response != null && response['status'] == "SUCCESS") {
                   await CartController.instance.clearCartProduct(widget.index);
-                  await NotificationController.showNotification(
-                    title: "Payment Success",
-                    body: "Your payment of NGN$amount was successful",
-                    largeIcon: "asset://assets/icons/success.png",
-                    customSound: "asset://assets/audio/benji.wav",
-                  );
+                  // await NotificationController.showNotification(
+                  //   title: "Payment Success",
+                  //   body: "Your payment of NGN$amount was successful",
+                  //   largeIcon: "asset://assets/icons/success.png",
+                  //   customSound: "asset://assets/audio/benji.wav",
+                  // );
                   CartController.instance.cartTotalNumberForAll();
                   Get.off(
                     () => PaymentSuccessful(
@@ -234,12 +233,12 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 consoleLog('the response from my alatpay $response');
                 if (response != null && response['status'] == "SUCCESS") {
                   await CartController.instance.clearCartProduct(widget.index);
-                  await NotificationController.showNotification(
-                    title: "Payment Success",
-                    body: "Your payment of NGN$amount was successful",
-                    largeIcon: "asset://assets/icons/success.png",
-                    customSound: "asset://assets/audio/benji.wav",
-                  );
+                  // await NotificationController.showNotification(
+                  //   title: "Payment Success",
+                  //   body: "Your payment of NGN$amount was successful",
+                  //   largeIcon: "asset://assets/icons/success.png",
+                  //   customSound: "asset://assets/audio/benji.wav",
+                  // );
                   Get.off(
                     () => PaymentSuccessful(
                       order: widget.order,

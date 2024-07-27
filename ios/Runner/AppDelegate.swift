@@ -1,9 +1,9 @@
 import UIKit
 import Flutter
-import awesome_notifications
 import shared_preferences_foundation
 import GoogleMaps
 import FirebaseCore
+import flutter_local_notifications
 
 @UIApplicationMain
 @objc class AppDelegate: FlutterAppDelegate {
@@ -19,11 +19,20 @@ import FirebaseCore
 
       // This function registers the desired plugins to be used within a notification background action
       SwiftAwesomeNotificationsPlugin.setPluginRegistrantCallback { registry in
-          SwiftAwesomeNotificationsPlugin.register(
-            with: registry.registrar(forPlugin: "io.flutter.plugins.awesomenotifications.AwesomeNotificationsPlugin")!)
           SharedPreferencesPlugin.register(
             with: registry.registrar(forPlugin: "io.flutter.plugins.sharedpreferences.SharedPreferencesPlugin")!)
       }
+
+      // push notification stuff
+      FlutterLocalNotificationsPlugin.setPluginRegistrantCallback { (registry) in
+          GeneratedPluginRegistrant.register(with: registry)
+      }
+
+      if #available(iOS 10.0, *) {
+        UNUserNotificationCenter.current().delegate = self as UNUserNotificationCenterDelegate
+      }
+
+      // GeneratedPluginRegistrant.register(with: self)
 
       return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }

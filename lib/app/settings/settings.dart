@@ -28,7 +28,6 @@ import '../../theme/colors.dart';
 import '../auth/login.dart';
 import 'about_app.dart';
 import 'edit_profile.dart';
-import 'notification_page.dart';
 
 class Settings extends StatefulWidget {
   const Settings({super.key});
@@ -248,17 +247,6 @@ class _SettingsState extends State<Settings> {
   //========================================================================\\
 
   //==================================================== Navigation ===========================================================\\
-
-  toNotificationsPage() => Get.to(
-        () => const NotificationPage(),
-        routeName: 'NotificationsPage',
-        duration: const Duration(milliseconds: 300),
-        fullscreenDialog: true,
-        curve: Curves.easeIn,
-        preventDuplicates: true,
-        popGesture: true,
-        transition: Transition.rightToLeft,
-      );
 
   void _toEditProfile() async {
     await Get.to(
