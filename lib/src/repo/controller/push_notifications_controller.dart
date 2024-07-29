@@ -53,7 +53,7 @@ class MyPushNotification {
 
   void showLocalNotification(String title, String body) {
     const androidNotificationDetail = AndroidNotificationDetails(
-      '0', // channel Id
+      '1', // channel Id
       'general', // channel Name,
       sound: RawResourceAndroidNotificationSound('benji'),
     );

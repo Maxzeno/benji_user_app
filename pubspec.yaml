@@ -58,6 +58,7 @@ dependencies:
   # face_camera: ^0.1.2
   firebase_crashlytics: 3.5.1
   flutter_local_notifications:
+  app_tracking_transparency: ^2.0.5
 
 dev_dependencies:
   flutter_test:

@@ -3,6 +3,7 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:app_tracking_transparency/app_tracking_transparency.dart';
 import 'package:benji/app/cart/my_cart.dart';
 import 'package:benji/app/favorites/favorites.dart';
 import 'package:benji/app/packages/send_package.dart';
@@ -70,18 +71,13 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    // NotificationController.showNotification(
-    //   title: "Welcome",
-    //   body: "Nice to have you",
-    //   largeIcon: "asset://assets/icons/success.png",
-    //   customSound: "asset://assets/audio/benji.wav",
-    // );
     checkAuth(context);
     checkIfShoppingLocation(context);
     if (!fnd.kIsWeb) {
       localNotificationService.initNotify().then((value) {
         localNotificationService.messaging();
       });
+      AppTrackingTransparency.requestTrackingAuthorization();
 
       Timer(
         const Duration(seconds: 2),
