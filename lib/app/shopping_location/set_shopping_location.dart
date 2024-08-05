@@ -37,14 +37,17 @@ class _SetShoppingLocationState extends State<SetShoppingLocation> {
   Future setShoppingLocationForm() async {
     if (countryEC.text.isEmpty) {
       ApiProcessorController.errorSnack("Please select a country");
+      return;
     }
     if (stateEC.text.isEmpty) {
       ApiProcessorController.errorSnack("Please select a state");
+      return;
     }
     if (cityEC.text.isEmpty) {
       ApiProcessorController.errorSnack(
         "Please select a city",
       );
+      return;
     }
     await setShoppingLocation(countryEC.text, stateEC.text, cityEC.text);
     ProductController.instance.getTopProducts();
