@@ -74,7 +74,7 @@ class _HomeState extends State<Home> {
     super.initState();
     checkAuth(context);
     checkIfShoppingLocation(context);
-    if (Platform.isIOS) {
+    if (fnd.kIsWeb || Platform.isIOS) {
       AppTrackingTransparency.requestTrackingAuthorization().then((value) {
         debugPrint(value.toString());
       });

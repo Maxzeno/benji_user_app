@@ -13,6 +13,7 @@ import 'package:benji/frontend/main/term_condition.dart';
 import 'package:benji/frontend/store/categories.dart';
 import 'package:benji/src/repo/utils/url_lunch.dart';
 import 'package:benji/theme/colors.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_layout_grid/flutter_layout_grid.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -139,7 +140,7 @@ class Footer extends StatelessWidget {
                       children: [
                         Column(
                           children: [
-                            !Platform.isIOS
+                            kIsWeb || !Platform.isIOS
                                 ? Row(
                                     children: [
                                       Container(

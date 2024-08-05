@@ -11,6 +11,7 @@ import 'package:benji/src/repo/models/category/category.dart';
 import 'package:benji/src/repo/models/product/product.dart';
 import 'package:benji/src/repo/utils/url_lunch.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/foundation.dart' as fnd;
 import 'package:flutter/material.dart';
 import 'package:flutter_layout_grid/flutter_layout_grid.dart';
 
@@ -501,7 +502,7 @@ class _HomePageState extends State<HomePage> {
                                         ),
                                         kSizedBox,
                                         kHalfSizedBox,
-                                        !Platform.isIOS
+                                        fnd.kIsWeb || !Platform.isIOS
                                             ? Row(
                                                 children: [
                                                   Container(
