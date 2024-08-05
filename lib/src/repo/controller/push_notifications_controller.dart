@@ -98,14 +98,36 @@ class MyPushNotification {
     });
 
     FirebaseMessaging.onBackgroundMessage((message) async {
-      showLocalNotification(
-        message.notification?.title ?? "",
-        message.notification?.body ?? "",
-      );
+      firebaseMessagingBackgroundHandler(message);
     });
 
     // FirebaseMessaging.onMessageOpenedApp.listen((message) {
     //   // do something like navigate to a page
     // });
+  }
+
+  static Future<void> firebaseMessagingBackgroundHandler(
+      RemoteMessage message) async {
+    // Handle background message
+    print("Handling a background message: ${message.messageId}");
+    // Ensure that the plugin is initialized
+    FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+        FlutterLocalNotificationsPlugin();
+    const androidNotificationDetail = AndroidNotificationDetails(
+      '1', // channel Id
+      'general', // channel Name,
+      sound: RawResourceAndroidNotificationSound('benji'),
+    );
+    const iosNotificatonDetail = DarwinNotificationDetails();
+    const notificationDetails = NotificationDetails(
+      iOS: iosNotificatonDetail,
+      android: androidNotificationDetail,
+    );
+    flutterLocalNotificationsPlugin.show(
+      0,
+      message.notification?.title ?? "",
+      message.notification?.body ?? "",
+      notificationDetails,
+    );
   }
 }

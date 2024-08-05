@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:benji/frontend/store/categories.dart';
 import 'package:benji/frontend/store/category.dart';
 import 'package:benji/frontend/store/product.dart';
@@ -499,32 +501,36 @@ class _HomePageState extends State<HomePage> {
                                         ),
                                         kSizedBox,
                                         kHalfSizedBox,
-                                        Row(
-                                          children: [
-                                            Container(
-                                              constraints: BoxConstraints.loose(
-                                                const Size(100, 50),
-                                              ),
-                                              child: InkWell(
-                                                onTap:
-                                                    launchDownloadLinkAndroid,
-                                                child: Image.asset(
-                                                    'assets/frontend/assets/store/playstore.png'),
-                                              ),
-                                            ),
-                                            kWidthSizedBox,
-                                            Container(
-                                              constraints: BoxConstraints.loose(
-                                                const Size(100, 30),
-                                              ),
-                                              child: InkWell(
-                                                onTap: () {},
-                                                child: Image.asset(
-                                                    'assets/frontend/assets/store/appstore.png'),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
+                                        !Platform.isIOS
+                                            ? Row(
+                                                children: [
+                                                  Container(
+                                                    constraints:
+                                                        BoxConstraints.loose(
+                                                      const Size(100, 50),
+                                                    ),
+                                                    child: InkWell(
+                                                      onTap:
+                                                          launchDownloadLinkAndroid,
+                                                      child: Image.asset(
+                                                          'assets/frontend/assets/store/playstore.png'),
+                                                    ),
+                                                  ),
+                                                  kWidthSizedBox,
+                                                  Container(
+                                                    constraints:
+                                                        BoxConstraints.loose(
+                                                      const Size(100, 30),
+                                                    ),
+                                                    child: InkWell(
+                                                      onTap: () {},
+                                                      child: Image.asset(
+                                                          'assets/frontend/assets/store/appstore.png'),
+                                                    ),
+                                                  ),
+                                                ],
+                                              )
+                                            : const SizedBox(),
                                         kSizedBox,
                                       ],
                                     ),

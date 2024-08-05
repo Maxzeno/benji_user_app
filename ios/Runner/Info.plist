@@ -32,15 +32,15 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSUserNotificationsUsageDescription</key>
-	<string>This app needs needs access to send you personalised notifications</string>
+	<string>This app needs access to send you personalized notifications about your orders, packages and promotions.</string>
 	<key>NSUserTrackingUsageDescription</key>
-	<string>This app needs access to location to knowing your delivery location and offering realtime item tracking.</string>
+	<string>This app needs access to track your location for delivering your orders and providing real-time tracking updates.</string>
 	<key>NSCameraUsageDescription</key>
-	<string>This app needs access to the camera so you can upload an image</string>
+	<string>This app needs access to your camera to allow you to take photos for profile pictures or to verify your identity.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>This app needs access to location to knowing your delivery location and offering realtime item tracking.</string>
+	<string>This app needs access to track your location for delivering your orders and providing real-time tracking updates.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>This app needs access to the photos to upload an image</string>
+	<string>This app needs access to your photo library to allow you to upload images for your profile or to verify your identity.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UIBackgroundModes</key>
@@ -67,10 +67,8 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSCameraUsageDescription</key>
-	<string>For user verification</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>For user verification</string>
+	<string>This app needs access to your microphone for user verification and call.</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 </dict>

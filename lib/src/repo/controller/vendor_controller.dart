@@ -206,7 +206,7 @@ class VendorController extends GetxController {
     update();
   }
 
-  Future getSimilarVendors(String vendorId) async {
+  Future getSimilarVendors(BusinessModel vendorId) async {
     loadSimilarVendor.value = true;
     var url =
         "${Api.baseUrl}/clients/similarbusiness/${getShoppingLocationPath(reverse: true)}";

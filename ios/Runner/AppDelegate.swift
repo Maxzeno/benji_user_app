@@ -18,10 +18,10 @@ import flutter_local_notifications
       GMSServices.provideAPIKey("AIzaSyABRQIbm3Dl4x8TKq_6Ht3PaNllH_8yuwo")
 
       // This function registers the desired plugins to be used within a notification background action
-      SwiftAwesomeNotificationsPlugin.setPluginRegistrantCallback { registry in
-          SharedPreferencesPlugin.register(
-            with: registry.registrar(forPlugin: "io.flutter.plugins.sharedpreferences.SharedPreferencesPlugin")!)
-      }
+      // SwiftAwesomeNotificationsPlugin.setPluginRegistrantCallback { registry in
+      //     SharedPreferencesPlugin.register(
+      //       with: registry.registrar(forPlugin: "io.flutter.plugins.sharedpreferences.SharedPreferencesPlugin")!)
+      // }
 
       // push notification stuff
       FlutterLocalNotificationsPlugin.setPluginRegistrantCallback { (registry) in

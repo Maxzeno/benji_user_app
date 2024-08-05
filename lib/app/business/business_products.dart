@@ -160,8 +160,8 @@ class _BusinessProductsState extends State<BusinessProducts> {
           const Divider(height: kDefaultPadding, color: kGreyColor1),
           kSizedBox,
           GetBuilder<VendorController>(
-              initState: (state) => VendorController.instance
-                  .getSimilarVendors(widget.business.id),
+              initState: (state) =>
+                  VendorController.instance.getSimilarVendors(widget.business),
               builder: (controller) {
                 if (controller.loadSimilarVendor.value) {
                   return Center(

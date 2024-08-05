@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:benji/app/home/home.dart';
 import 'package:benji/app/packages/item_category_dropdown_menu.dart';
 import 'package:benji/src/components/appbar/my_appbar.dart';
@@ -16,9 +18,11 @@ import '../../src/providers/responsive_constant.dart';
 import '../../theme/colors.dart';
 
 class SetShoppingLocation extends StatefulWidget {
-  const SetShoppingLocation({super.key, this.navTo, this.hideButton = false});
+  const SetShoppingLocation(
+      {super.key, this.navTo, this.hideButton = false, this.fromLogin = false});
   final Function()? navTo;
   final bool hideButton;
+  final bool fromLogin;
 
   @override
   State<SetShoppingLocation> createState() => _SetShoppingLocationState();
@@ -61,6 +65,29 @@ class _SetShoppingLocationState extends State<SetShoppingLocation> {
     } else {
       widget.navTo!();
     }
+  }
+
+  @override
+  void initState() {
+    if (widget.fromLogin && checkShoppingLocation() == true) {
+      Timer(
+        const Duration(seconds: 1),
+        () {
+          Get.off(
+            () => const Home(),
+            routeName: 'Home',
+            duration: const Duration(milliseconds: 300),
+            fullscreenDialog: true,
+            curve: Curves.easeIn,
+            preventDuplicates: true,
+            popGesture: true,
+            transition: Transition.rightToLeft,
+          );
+        },
+      );
+    }
+
+    super.initState();
   }
 
   @override

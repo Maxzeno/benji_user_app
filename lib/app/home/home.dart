@@ -1,6 +1,7 @@
 // ignore_for_file: unused_field, invalid_use_of_protected_member
 
 import 'dart:async';
+import 'dart:io';
 import 'dart:math';
 
 import 'package:app_tracking_transparency/app_tracking_transparency.dart';
@@ -73,11 +74,15 @@ class _HomeState extends State<Home> {
     super.initState();
     checkAuth(context);
     checkIfShoppingLocation(context);
+    if (Platform.isIOS) {
+      AppTrackingTransparency.requestTrackingAuthorization().then((value) {
+        debugPrint(value.toString());
+      });
+    }
     if (!fnd.kIsWeb) {
       localNotificationService.initNotify().then((value) {
         localNotificationService.messaging();
       });
-      AppTrackingTransparency.requestTrackingAuthorization();
 
       Timer(
         const Duration(seconds: 2),
@@ -764,7 +769,7 @@ class _HomeState extends State<Home> {
                       );
                     }),
                 SeeAllContainer(
-                  title: "Recommended businesses",
+                  title: "Recommended vendors",
                   onPressed: _toSeeAllBusinessesNearYou,
                 ),
                 kSizedBox,
@@ -817,12 +822,12 @@ class _HomeState extends State<Home> {
                       return const EmptyCard(
                         showButton: false,
                         emptyCardMessage:
-                            "There are no recommended businesses in your location.",
+                            "There are no recommended vendors in your location.",
                       );
                     }),
                 kSizedBox,
                 SeeAllContainer(
-                  title: "Popular businesses",
+                  title: "Popular vendors",
                   onPressed: _toSeeAllPopularBusinesses,
                 ),
                 kSizedBox,

@@ -1,5 +1,7 @@
 // ignore_for_file: library_prefixes
 
+import 'dart:io';
+
 import 'package:benji/frontend/join_us/join_us.dart';
 import 'package:benji/frontend/main/about.dart';
 import 'package:benji/frontend/main/contact_us.dart';
@@ -137,37 +139,39 @@ class Footer extends StatelessWidget {
                       children: [
                         Column(
                           children: [
-                            Row(
-                              children: [
-                                Container(
-                                  constraints: BoxConstraints.loose(
-                                    Size(
-                                        deviceType(media.width) == 1
-                                            ? 110
-                                            : 150,
-                                        90),
-                                  ),
-                                  child: InkWell(
-                                      onTap: launchDownloadLinkAndroid,
-                                      child: Image.asset(
-                                          'assets/frontend/assets/store/playstore.png')),
-                                ),
-                                kWidthSizedBox,
-                                Container(
-                                  constraints: BoxConstraints.loose(
-                                    Size(
-                                        deviceType(media.width) == 1
-                                            ? 110
-                                            : 160,
-                                        100),
-                                  ),
-                                  child: InkWell(
-                                      onTap: launchDownloadLinkIOS,
-                                      child: Image.asset(
-                                          'assets/frontend/assets/store/appstore.png')),
-                                ),
-                              ],
-                            ),
+                            !Platform.isIOS
+                                ? Row(
+                                    children: [
+                                      Container(
+                                        constraints: BoxConstraints.loose(
+                                          Size(
+                                              deviceType(media.width) == 1
+                                                  ? 110
+                                                  : 150,
+                                              90),
+                                        ),
+                                        child: InkWell(
+                                            onTap: launchDownloadLinkAndroid,
+                                            child: Image.asset(
+                                                'assets/frontend/assets/store/playstore.png')),
+                                      ),
+                                      kWidthSizedBox,
+                                      Container(
+                                        constraints: BoxConstraints.loose(
+                                          Size(
+                                              deviceType(media.width) == 1
+                                                  ? 110
+                                                  : 160,
+                                              100),
+                                        ),
+                                        child: InkWell(
+                                            onTap: launchDownloadLinkIOS,
+                                            child: Image.asset(
+                                                'assets/frontend/assets/store/appstore.png')),
+                                      ),
+                                    ],
+                                  )
+                                : const SizedBox(),
                             kSizedBox,
                             const Row(
                               children: [

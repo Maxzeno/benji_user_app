@@ -3,7 +3,7 @@ description: "Benji user app."
 
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
-version: 3.0.0+6
+version: 3.0.0+9
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -59,6 +59,7 @@ dependencies:
   firebase_crashlytics: 3.5.1
   flutter_local_notifications:
   app_tracking_transparency: ^2.0.5
+  awesome_notifications:
 
 dev_dependencies:
   flutter_test:
