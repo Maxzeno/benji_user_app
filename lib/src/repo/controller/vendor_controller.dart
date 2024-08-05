@@ -206,10 +206,10 @@ class VendorController extends GetxController {
     update();
   }
 
-  Future getSimilarVendors(BusinessModel vendorId) async {
+  Future getSimilarVendors(BusinessModel business) async {
     loadSimilarVendor.value = true;
     var url =
-        "${Api.baseUrl}/clients/similarbusiness/${getShoppingLocationPath(reverse: true)}";
+        "${Api.baseUrl}/clients/similarbusiness/${getShoppingLocationPath(reverse: true)}?business_id=${business.id}";
     log(url);
     String token = UserController.instance.user.value.token;
     http.Response? response = await HandleData.getApi(url, token);
