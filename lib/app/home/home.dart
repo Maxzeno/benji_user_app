@@ -79,7 +79,7 @@ class _HomeState extends State<Home> {
         debugPrint(value.toString());
       });
     }
-    if (!fnd.kIsWeb) {
+    if (!fnd.kIsWeb && Platform.isAndroid) {
       localNotificationService.initNotify().then((value) {
         localNotificationService.messaging();
       });
