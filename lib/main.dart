@@ -73,16 +73,14 @@ void main() async {
   Get.put(ReviewsController());
   Get.put(RiderController());
 
-  if (!kIsWeb) {
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
-  }
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  localNotificationService = MyPushNotification();
+  await localNotificationService.firebase.setAutoInitEnabled(true);
+  await localNotificationService.setup();
 
   if (!kIsWeb) {
-    localNotificationService = MyPushNotification();
-
-    await localNotificationService.firebase.setAutoInitEnabled(true);
     // await PushNotificationController.initializeNotification();
 
     // FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
@@ -94,8 +92,6 @@ void main() async {
       FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
       return true;
     };
-
-    await localNotificationService.setup();
   }
 
   runApp(const MyApp());

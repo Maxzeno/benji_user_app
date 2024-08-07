@@ -74,16 +74,15 @@ class _HomeState extends State<Home> {
     super.initState();
     checkAuth(context);
     checkIfShoppingLocation(context);
-    if (fnd.kIsWeb || Platform.isIOS) {
+    if (!fnd.kIsWeb && Platform.isIOS) {
       AppTrackingTransparency.requestTrackingAuthorization().then((value) {
         debugPrint(value.toString());
       });
     }
-    if (!fnd.kIsWeb && Platform.isAndroid) {
-      localNotificationService.initNotify().then((value) {
-        localNotificationService.messaging();
-      });
-
+    localNotificationService.initNotify().then((value) {
+      localNotificationService.messaging();
+    });
+    if (!fnd.kIsWeb) {
       Timer(
         const Duration(seconds: 2),
         () {

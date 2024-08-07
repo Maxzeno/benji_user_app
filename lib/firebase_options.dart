@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -49,6 +46,16 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyBCQ_NwaciOO2WayStxCBe56EaWWghrHcE',
+    appId: '1:912983858748:web:b3d99cee33f947f30bad39',
+    messagingSenderId: '912983858748',
+    projectId: 'keen-tokenizer-400311',
+    authDomain: 'keen-tokenizer-400311.firebaseapp.com',
+    storageBucket: 'keen-tokenizer-400311.appspot.com',
+    measurementId: 'G-4CMFFN1MGR',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDFliG30yK5Kni1TDp8R0aCSxN-7tDyqg8',
     appId: '1:912983858748:android:47bf1c80685a7c2e0bad39',
@@ -65,5 +72,4 @@ class DefaultFirebaseOptions {
     storageBucket: 'keen-tokenizer-400311.appspot.com',
     iosBundleId: 'com.benjiexpress.benji.ios',
   );
-
 }
